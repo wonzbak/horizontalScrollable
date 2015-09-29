@@ -3,11 +3,11 @@
  *
  * License: The MIT License (https://opensource.org/licenses/MIT).
  */
-
 (function ( $ ) {
     $.fn.horizontalScrollable = function() {
-        return thuis.each(function() {
-            this.attr('unselectable','on')
+        return this.each(function() {
+            $this = $(this);
+            $this.attr('unselectable','on')
                  .css({'-moz-user-select':'none',
                        '-o-user-select':'none',
                        '-khtml-user-select':'none', /* you could also put this in a class */
@@ -19,9 +19,9 @@
             var isMouseDown            = false;
             var pageX                  = 0;
             var originalScrollPosition = 0;
-            var that                   = this;
+            var that                   = $this;
 
-            this.on('mousedown', function (e) {
+            $this.on('mousedown', function (e) {
                 isMouseDown = true;
                 pageX = e.pageX;
                 that.css('cursor', 'move');
@@ -38,3 +38,4 @@
         });
     };
 })(jQuery);
+
